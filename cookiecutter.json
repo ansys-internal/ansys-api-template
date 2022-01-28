@@ -1,8 +1,8 @@
 {
     "product_name": "hello",
-    "project_slug": "ansys-{{ cookiecutter.product_name | lower }}-protos",
+    "project_slug": "ansys-api-{{ cookiecutter.product_name | lower }}",
     "api_version": "0",
-    "protos_dir": "../test/{{ cookiecutter.product_name | lower }}",
+    "protos_dir": "",
     "proto_dependencies": {
         "modules": []
     }

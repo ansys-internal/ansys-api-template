@@ -1,0 +1,85 @@
+name: GitHub CI
+# run only on main branch.  This avoids duplicated actions on PRs
+on:
+  pull_request:
+  push:
+    tags:
+      - "*"
+    branches:
+      - main
+jobs:
+  pre-commit:
+    name: Pre-commit checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install pre-commit requirements
+        run: |
+          pip install -r requirements_precommit.txt
+
+      - name: Run pre-commit
+        run: |
+          pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
+  # test:
+  #   name: Run tests
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #       os: [ubuntu-latest, windows-latest]
+  #       python-version: ["3.7", "3.8", "3.9", "3.10"]
+  #     fail-fast: false
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Setup Python
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: ${{ matrix.python-version }}
+  #     - name: Install development requirements
+  #       run: |
+  #         pip install .[test]
+  #     - name: Run tests
+  #       run: |
+  #         cd test
+  #         pytest -v
+  # docs:
+  #   name: Build Documentation
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Setup Python
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: 3.7
+
+  #     - name: Install library
+  #       run: pip install .[doc]
+
+  #     - name: Build HTML
+  #       run: |
+  #         make -C doc html SPHINXOPTS="-W"
+
+  #     - name: Build PDF Documentation
+  #       run: |
+  #         sudo apt update
+  #         sudo apt-get install -y texlive-latex-extra latexmk
+  #         make -C doc latexpdf
+
+  #     - name: Upload HTML Documentation
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: Documentation-html
+  #         path: doc/build/html
+  #         retention-days: 7
+
+  #     - name: Upload PDF Documentation
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: Documentation-pdf
+  #         path: doc/build/latex/*.pdf
+  #         retention-days: 7

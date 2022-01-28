@@ -1,0 +1,5 @@
+greeter
+ansys-api-greeter
+1
+../greeter
+{"modules": ["ansys-api-hello"]}
