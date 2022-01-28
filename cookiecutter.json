@@ -1,5 +1,5 @@
 {
-    "product_name": "hello",
+    "product_name": "your_product_name_here",
     "project_slug": "ansys-api-{{ cookiecutter.product_name | lower }}",
     "api_version": "0",
     "protos_dir": "",
