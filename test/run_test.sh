@@ -32,14 +32,15 @@ pushd $PROTOC_HELPER_DIR
 pip wheel -w $TEST_WORKDIR/local_dist/ .
 popd
 
-# # ---- DOWNLOAD ADDITIONAL DEPENDENCIES TO 'local_dist' ----
-# # We could instead use PyPI _and_ the local directory, but this is unsafe because
-# # a package on PyPI could shadow 'ansys-tools-protoc-helper' (see example 10 on
-# # https://pip.pypa.io/en/stable/cli/pip_install/#examples).
-# pushd ./local_dist
-# pip download setuptools wheel grpcio-tools==1.0.0 protobuf==3.19.1 mypy-protobuf # cython?
-# popd
+# ---- DOWNLOAD ADDITIONAL DEPENDENCIES TO 'local_dist' ----
+# We could instead use PyPI _and_ the local directory, but this is unsafe because
+# a package on PyPI could shadow 'ansys-tools-protoc-helper' (see example 10 on
+# https://pip.pypa.io/en/stable/cli/pip_install/#examples).
+pushd ./local_dist
+pip download setuptools wheel grpcio-tools protobuf mypy-protobuf # cython?
+popd
 
-# # ---- BUILD 'ansys-hello-protos' WHEEL, INSTALL 'ansys-greeter-protos' ----
-# pip wheel --no-index --find-links=./local_dist -w ./local_dist ./ansys-hello-protos/
-# pip install --no-index --find-links=./local_dist ./ansys-greeter-protos/
+# ---- BUILD 'ansys-api-hello' WHEEL, INSTALL 'ansys-api-greeter' ----
+pip wheel --no-index --find-links=./local_dist -w ./local_dist ./ansys-api-hello/
+pip install --no-index --find-links=./local_dist ./ansys-api-greeter/
+python -c "from ansys.api.greeter.v1.greeter_pb2_grpc import GreeterStub"
