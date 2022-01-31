@@ -1,4 +1,4 @@
-# Template Protocol File Repository
+# API Repository Template
 
 Template repository for creating gRPC API packages that compile to Python source code.
 
