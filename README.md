@@ -21,6 +21,7 @@ This will prompt you for the following inputs:
 * ``product_name``: The name of the product for which you are creating an API directory. For example, the product name could be ``MAPDL``.
 * ``project_slug``: This will be the PyPI name of the new package. The default should be acceptable in most cases.
 * ``api_version``: Version number of the API. If you're just getting started, ``0`` should be used.
+* ``api_package_version``
 * ``protos_dir``: Path to a directory which contains the ``.proto`` files that should be included in the API package. This can be left empty, in which case you need to manually copy in the ``.proto`` files later.
 
   **NOTE:** The path needs to be given relative to the root of the package that will be created. In other words, you should add a leading ``../`` compared path relative to your working directory, or alternatively use an absolute path.

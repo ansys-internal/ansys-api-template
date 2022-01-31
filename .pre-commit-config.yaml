@@ -3,15 +3,18 @@ repos:
   rev: 21.12b0
   hooks:
   - id: black
+    exclude: "^({{cookiecutter.project_slug}}/)"
 - repo: https://github.com/asottile/reorder_python_imports
   rev: v2.6.0
   hooks:
   - id: reorder-python-imports
     args: ["--py37-plus"]
+    exclude: "^({{cookiecutter.project_slug}}/)"
 - repo: https://gitlab.com/PyCQA/flake8
   rev: 3.9.2
   hooks:
   - id: flake8
+    exclude: "^({{cookiecutter.project_slug}}/)"
 - repo: https://github.com/codespell-project/codespell
   rev: v2.1.0
   hooks:
@@ -32,3 +35,4 @@ repos:
     require_serial: true
     exclude: "^(doc/)|(test/)"
     args: []
+    exclude: "^({{cookiecutter.project_slug}}/)"

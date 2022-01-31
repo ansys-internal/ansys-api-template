@@ -2,6 +2,7 @@
     "product_name": "your_product_name_here",
     "project_slug": "ansys-api-{{ cookiecutter.product_name | lower }}",
     "api_version": "0",
+    "api_package_version": "0.1.0",
     "protos_dir": "",
     "proto_dependencies": {
         "modules": []
