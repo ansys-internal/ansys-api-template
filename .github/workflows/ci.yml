@@ -34,6 +34,13 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: main
+      - uses: actions/checkout@v2
+        with:
+          repository: ansys/ansys-tools-protoc-helper
+          ref: main
+          path: ansys-tools-protoc-helper
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
