@@ -33,3 +33,11 @@ This will prompt you for the following inputs:
   ```json
   {"module": ["ansys-api-filetransfer", "ansys-api-mapdl"]}
   ```
+
+## Maintaining your API repository
+
+Once your API repository has been generated, you can initialize a ``git`` repository inside the new directory. Any changes to the ``.proto`` files can then be made directly in that repository.
+
+Details for how the ``.proto`` compilation works and how it can be controlled from ``setup.py`` and ``pyproject.toml`` can be found in the ``ansys-tools-protoc-helper`` [documentation](TODO: add link).
+
+**IMPORTANT NOTE:** You **must not** create an ``__init__.py`` file directly in the ``ansys`` or ``ansys/api`` directories. Doing so would make it impossible to use other packages which use the ``ansys.`` or ``ansys.api`` namespace alongside your package. This is because we use implicit namespace packages, see the [PEP 420](https://www.python.org/dev/peps/pep-0420/) for details.
