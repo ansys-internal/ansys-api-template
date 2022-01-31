@@ -41,7 +41,7 @@ jobs:
       - name: Run tests
         run: |
           cd test
-          ./run_test.sh
+          ./run_test.sh --no-virtualenv-check
   # docs:
   #   name: Build Documentation
   #   runs-on: ubuntu-latest

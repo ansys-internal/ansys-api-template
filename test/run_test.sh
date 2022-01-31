@@ -5,8 +5,11 @@ set -e
 TEST_WORKDIR=$(realpath $(dirname "$0"))
 PROTOC_HELPER_DIR=$(realpath $TEST_WORKDIR"/../../ansys-tools-protoc-helper")
 
-# check that we are in a virtualenv..
-python -c 'import sys; assert hasattr(sys, "real_prefix") or (hasattr(sys, "base_prefix") and sys.prefix != sys.base_prefix), "Must run the test script from within a virtual environment."'
+if [ "$1" != "--no-virtualenv-check" ]
+then
+    # check that we are in a virtualenv..
+    python -c 'import sys; assert hasattr(sys, "real_prefix") or (hasattr(sys, "base_prefix") and sys.prefix != sys.base_prefix), "Must run the test script from within a virtual environment."'
+fi
 
 pushd $TEST_WORKDIR
 # ---- INSTALL PREREQUISITES ----
