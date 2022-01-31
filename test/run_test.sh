@@ -12,14 +12,11 @@ pushd $TEST_WORKDIR
 # ---- INSTALL PREREQUISITES ----
 # We need versions of pip and setuptools that understand the 'pyproject.toml' - based build, at least
 pip install -U pip setuptools==42
-
 pip install cookiecutter 'click<8'
-# pip install git+https://github.com/cookiecutter/cookiecutter.git@2.0.2#egg=cookiecutter # NOTE: using v2 for the '--replay-file' option
 
 # ---- CREATE TEST PACKAGES ----
 rm -rf ./ansys-api-*
-cookiecutter -f --no-input ..  product_name=hello protos_dir=../hello
-# cookiecutter -f --no-input ..  product_name=greeter protos_dir=../greeter proto_dependencies="{'modules'=['ansys-api-hello']}"
+cookiecutter ..  < hello_input.txt
 cookiecutter ..  < greeter_input.txt
 
 # ---- BUILD 'ansys-tools-protoc-helper' WHEEL ----
@@ -42,5 +39,5 @@ popd
 
 # ---- BUILD 'ansys-api-hello' WHEEL, INSTALL 'ansys-api-greeter' ----
 pip wheel --no-index --find-links=./local_dist -w ./local_dist ./ansys-api-hello/
-pip install --no-index --find-links=./local_dist ./ansys-api-greeter/
-python -c "from ansys.api.greeter.v1.greeter_pb2_grpc import GreeterStub"
+pip install --no-index --find-links=./local_dist ./ansys-api-the-greeter/
+python -c "from ansys.api.the_greeter.v1.greeter_pb2_grpc import GreeterStub"

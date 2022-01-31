@@ -1,5 +1,6 @@
-Greeter
-ansys-api-greeter
+The Greeter
+
+
 1
 
 ../greeter
