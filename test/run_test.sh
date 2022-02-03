@@ -37,7 +37,7 @@ popd
 # a package on PyPI could shadow 'ansys-tools-protoc-helper' (see example 10 on
 # https://pip.pypa.io/en/stable/cli/pip_install/#examples).
 pushd ./local_dist
-pip download setuptools wheel grpcio-tools protobuf mypy-protobuf # cython?
+pip download setuptools wheel ansys-tools-protoc-helper
 popd
 
 # ---- BUILD 'ansys-api-hello' WHEEL, INSTALL 'ansys-api-greeter' ----
