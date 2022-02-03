@@ -28,12 +28,12 @@ This will prompt you for the following inputs:
   **NOTE:** The path needs to be given relative to the root of the package that will be created. In other words, you should add a leading ``../`` compared path relative to your working directory, or alternatively use an absolute path.
 * ``proto_dependencies``: Specifies whether your ``.proto`` files depend on another API package. If they are independent, you can simply accept the default. Otherwise, the dependencies need to be passed as a JSON dictionary:
   ```json
-  {"module": [<your dependencies here>]}
+  {"modules": [<your dependencies here>]}
   ```
 
   For example, if you depend on ``ansys-api-filetransfer`` and ``ansys-api-mapdl``:
   ```json
-  {"module": ["ansys-api-filetransfer", "ansys-api-mapdl"]}
+  {"modules": ["ansys-api-filetransfer", "ansys-api-mapdl"]}
   ```
 
 ## Maintaining your API repository
