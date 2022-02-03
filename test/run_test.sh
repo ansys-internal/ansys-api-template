@@ -3,7 +3,7 @@
 set -e
 
 TEST_WORKDIR=$(realpath $(dirname "$0"))
-PROTOC_HELPER_DIR=$(realpath $TEST_WORKDIR"/../../ansys-tools-protoc-helper")
+
 
 if [ "$1" != "--no-virtualenv-check" ]
 then
@@ -22,19 +22,15 @@ rm -rf ./ansys-api-*
 cookiecutter ..  < hello_input.txt
 cookiecutter ..  < greeter_input.txt
 
-# ---- BUILD 'ansys-tools-protoc-helper' WHEEL ----
-# Note that we use a local directory as a 'PyPI replacement', since we don't
-# yet want to publish the package, but the subsequent builds need to find
-# it for the build-time dependencies.
+# ---- CREATE LOCAL PACKAGE DIRECTORY ----
+# Since the 'greeter' has 'hello' as a build-time dependency, it needs
+# to be findable by 'pip'. We use a local directory as 'PyPI replacement'.
 rm -rf local_dist
 mkdir local_dist
-pushd $PROTOC_HELPER_DIR
-pip wheel -w $TEST_WORKDIR/local_dist/ .
-popd
 
 # ---- DOWNLOAD ADDITIONAL DEPENDENCIES TO 'local_dist' ----
 # We could instead use PyPI _and_ the local directory, but this is unsafe because
-# a package on PyPI could shadow 'ansys-tools-protoc-helper' (see example 10 on
+# a package on PyPI could shadow 'ansys-api-hello' (see example 10 on
 # https://pip.pypa.io/en/stable/cli/pip_install/#examples).
 pushd ./local_dist
 pip download setuptools wheel ansys-tools-protoc-helper
