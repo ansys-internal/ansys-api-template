@@ -38,5 +38,5 @@ if __name__ == "__main__":
                 "ansys.api.{{ cookiecutter.product_name_slug }}.v{{ cookiecutter.api_version }}=ansys.api.{{ cookiecutter.product_name_slug }}.v{{ cookiecutter.api_version }}"
             ],
         },
-        cmdclass = CMDCLASS_OVERRIDE
+        cmdclass=CMDCLASS_OVERRIDE
     )
