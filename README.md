@@ -10,7 +10,13 @@ Before using the template, you need to install its dependencies. Preferably, in 
 pip install cookiecutter 'click<8'
 ```
 
-Next, you can create your repository with
+Next, you can create your repository (via ssh) with:
+
+```bash
+cookiecutter git+ssh://git@github.com/ansys/ansys-api-template
+```
+
+or if you prefer https:
 
 ```bash
 cookiecutter gh:ansys/ansys-api-template
