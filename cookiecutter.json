@@ -8,5 +8,6 @@
     "proto_dependencies": {
         "modules": []
     },
-    "_extensions": ["cookiecutter.extensions.SlugifyExtension"]
+    "_extensions": ["cookiecutter.extensions.SlugifyExtension"],
+    "grpcio_version": "1.17"
 }
