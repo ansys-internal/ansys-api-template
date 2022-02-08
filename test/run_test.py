@@ -16,15 +16,19 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="run tests")
     parser.add_argument(
-        "--no-virtualenv-check", help="Check if within a virtualenv", action="store_true"
+        "--skip-venv-check", help="Do not check if within a virtualenv", action="store_true"
     )
     args = parser.parse_args()
 
-    if args.no_virtualenv_check:
+    # check if within a virtual environment
+    if not args.skip_venv_check:
         if not hasattr(sys, "real_prefix") or (
             hasattr(sys, "base_prefix") and sys.prefix != sys.base_prefix
         ):
-            raise RuntimeError("Must run the test script from within a virtual environment.")
+            raise RuntimeError(
+                "Must run the test script from within a virtual environment.\n\n"
+                "Skip this check by passing --skip-venv-check"
+            )
 
     # ---- INSTALL PREREQUISITES ----
     # We need versions of pip and setuptools that understand the
