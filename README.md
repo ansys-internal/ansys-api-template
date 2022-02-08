@@ -64,10 +64,10 @@ This will create both the source distribution containing just the protofiles
 along with the wheel containing the protofiles and build Python interface
 files.
 
-Note that the interface files are identical regardless of the version of
-Python used to generate them, but the last pre-built wheel for ``grpcio~={{
-cookiecutter.grpcio_version }}`` was Python 3.7, so to improve your build time,
-use Python 3.7 when building the wheel.
+Note that the interface files are identical regardless of the version of Python
+used to generate them, but the last pre-built wheel for ``grpcio~=1.17`` was
+Python 3.7, so to improve your build time, use Python 3.7 when building the
+wheel.
 
 
 #### Manual Deployment
