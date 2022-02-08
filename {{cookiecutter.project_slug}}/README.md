@@ -54,7 +54,7 @@ source and wheel packages for these gRPC Python interface files. By default,
 these are built on PRs, the main branch, and on tags when pushing. Artifacts
 are uploaded for each PR.
 
-To publically release wheels to PyPI, ensure your branch is up-to-date and then
+To publicly release wheels to PyPI, ensure your branch is up-to-date and then
 push tags. For example, for the version ``v0.5.0``.
 
 ```bash
