@@ -14,7 +14,7 @@ fi
 pushd $TEST_WORKDIR
 # ---- INSTALL PREREQUISITES ----
 # We need versions of pip and setuptools that understand the 'pyproject.toml' - based build, at least
-pip install -U pip setuptools==42
+pip install -U pip setuptools>=42
 pip install cookiecutter 'click<8'
 
 # ---- CREATE TEST PACKAGES ----
