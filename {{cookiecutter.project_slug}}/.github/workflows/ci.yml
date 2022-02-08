@@ -62,7 +62,7 @@ jobs:
           twine upload --skip-existing ./**/*.tar.gz
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: {% raw %}${{ secrets.PYPI_TOKEN }} {%- endraw %}
+          TWINE_PASSWORD: {% raw %}${{ secrets.PYPI_TOKEN }} {% endraw %}
 
       - name: Release
         uses: softprops/action-gh-release@v1
