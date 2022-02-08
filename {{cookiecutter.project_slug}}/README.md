@@ -18,7 +18,7 @@ Otherwise, see the
 
 #### Build
 
-To build the wheel, run:
+To build the gRPC packages, run:
 
 ```
 pip install build
