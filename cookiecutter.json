@@ -1,7 +1,8 @@
 {
-    "product_name": "Your Product Name Here",
-    "project_slug": "ansys-api-{{ cookiecutter.product_name | slugify }}",
-    "product_name_slug": "{{ cookiecutter.product_name | slugify(separator='_') }}",
+    "product_name": "",
+    "library_name": "",
+    "project_slug": "ansys-api-{{ '-'.join([cookiecutter.product_name, cookiecutter.library_name]) | slugify }}",
+    "product_name_slug": "{{ '-'.join([cookiecutter.product_name, cookiecutter.library_name]) | slugify(separator='_') }}",
     "api_version": "0",
     "api_package_version": "0.1.0",
     "protos_dir": "",

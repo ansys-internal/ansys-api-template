@@ -7,7 +7,12 @@ import sys
 
 PROTOS_DIR = "{{ cookiecutter.protos_dir }}"
 
-DEST_PATH = pathlib.Path("ansys") / "api" / "{{ cookiecutter.product_name_slug }}"
+DEST_PATH = (
+    pathlib.Path("ansys")
+    / "api"
+    / "{{ cookiecutter.product_name | slugify(separator='_') }}"
+    / "{{ cookiecutter.library_name | slugify(separator='_') }}"
+)
 VERSION_DEST_PATH = DEST_PATH / "v{{ cookiecutter.api_version }}"
 
 init_content = """\
