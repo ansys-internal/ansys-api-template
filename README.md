@@ -45,7 +45,6 @@ This will prompt you for the following inputs:
 * `product_name`: The name of the product for which you are creating an API directory. For example, the product name could be `MAPDL`, `DPF`, or `tools`.
 * `library_name`: The name of the library for which you are creating an API directory. For example, the library name could be `core`, `file-transfer` or an empty string.
 * `project_name_slug`: The package name used for the API package. In most cases, the suggested default should work fine.
-* `product_name_slug`: A normalized (lowercase, separated by underscores) variant of the product name. In most cases, the suggested default should work fine. If it needs to be modified, it should consist only of lowercase letters and underscores.
 * `api_version`: Version number of the API. If you're just getting started, `0` should be used.
 * `api_package_version`: The version of the API package. The default `0.1.0` is suitable if this is the first release.
 * `protos_dir`: Path to a directory which contains the `.proto` files that should be included in the API package. This can be left empty, in which case you need to manually copy in the `.proto` files later.
