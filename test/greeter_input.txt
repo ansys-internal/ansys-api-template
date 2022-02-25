@@ -4,4 +4,4 @@ The Greeter
 1
 
 ../greeter
-{"modules": ["ansys-api-hello"]}
+{"modules": ["ansys-api-hello-world"]}

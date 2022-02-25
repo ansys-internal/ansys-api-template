@@ -78,7 +78,7 @@ if __name__ == "__main__":
             "--find-links=./local_dist",
             "-w",
             "./local_dist",
-            "./ansys-api-hello/",
+            "./ansys-api-hello-world/",
         ],
         cwd=HERE,
     )
