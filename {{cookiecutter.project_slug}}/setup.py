@@ -15,7 +15,7 @@ with open(os.path.join(HERE, "README.md"), encoding="utf-8") as f:
 product = "{{ cookiecutter.product_name | slugify(separator='_') }}"
 library = "{{ cookiecutter.library_name | slugify(separator='_') }}"
 package_info = ["ansys", "api", product, library, "v{{ cookiecutter.api_version }}"]
-with open(os.path.join(HERE, "ansys", "api", product, library, "VERSION"), encoding="utf-8") as f:
+with open(os.path.join(HERE, "src", "ansys", "api", product, library, "VERSION"), encoding="utf-8") as f:
     version = f.read().strip()
 
 package_name = "{{ cookiecutter.project_slug | lower }}"
@@ -36,7 +36,8 @@ if __name__ == "__main__":
         license="MIT",
         python_requires=">=3.7",
         install_requires=["grpcio~=1.17", "protobuf~=3.19"{% for mod in cookiecutter.proto_dependencies['modules'] %}, "{{ mod }}"{% endfor %}],
-        packages=setuptools.find_namespace_packages(".", include=("ansys.*",)),
+        package_dir = {"": "src"},
+        packages=setuptools.find_namespace_packages("src", include=("ansys.*",)),
         package_data={
             "": ["*.proto", "*.pyi", "py.typed", "VERSION"],
         },
