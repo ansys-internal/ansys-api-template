@@ -8,7 +8,8 @@ import sys
 PROTOS_DIR = "{{ cookiecutter.protos_dir }}"
 
 DEST_PATH = (
-    pathlib.Path("ansys")
+    pathlib.Path("src")
+    / "ansys"
     / "api"
     / "{{ cookiecutter.product_name | slugify(separator='_') }}"
     / "{{ cookiecutter.library_name | slugify(separator='_') }}"
