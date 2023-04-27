@@ -13,7 +13,6 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="run tests")
     parser.add_argument(
         "--skip-venv-check", help="Do not check if within a virtualenv", action="store_true"
