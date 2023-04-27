@@ -21,7 +21,7 @@ be uploaded to the [Ansys](https://github.com/ansys) organization to
 automatically push the Python package to PyPI.
 
 
-## Installation dependencies
+## Installation and usage
 
 Before using the template, run this command, preferably in a virtual environment, to install
 package dependencies:
@@ -65,11 +65,11 @@ You are then prompted for the following inputs:
   {"modules": ["ansys-api-tools-file-transfer", "ansys-api-mapdl-core"]}
   ```
 
-## API repository maintenance
+## Maintaining your API repository
 
-Once your API repository has been generated, you can initialize a ``git`` repository inside the new directory. Any changes to PROTO files can then be made directly in this repository.
+Once your API repository has been generated, you can initialize a ``git`` repository inside the new directory. Any changes to PROTO files can then be made directly in your repository.
 
-For information on how the compilation of PROTO files works and how compilation can be controlled from the ``setup.py`` and ``pyproject.toml`` files, see the [documentation](https://github.com/ansys/ansys-tools-protoc-helper) for the ``ansys-tools-protoc-helper`` package.
+For information on how the compilation of PROTO files works and how compilation can be controlled from the ``setup.py`` and ``pyproject.toml`` files, see the [documentation](https://ansys.github.io/ansys-tools-protoc-helper/) for the ``ansys-tools-protoc-helper`` package.
 
 **NOTE:** You **must not** create an ``__init__.py`` file directly in the ``ansys`` or ``ansys/api`` directories. Doing so would make it impossible to use other packages that use the `ansys.` or `ansys.api` namespace alongside your package. This is because implicit namespace packages are used. For more information, see [PEP 420] - Implicit Namespace Packages (https://www.python.org/dev/peps/pep-0420/).
 
