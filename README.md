@@ -92,7 +92,7 @@ Python 3.7. To improve your build time, use Python 3.7 when building the
 wheel.
 
 
-#### Manual Deployment
+#### Manual deployment
 
 After building the packages, manually deploy them with these commands:
 
@@ -128,11 +128,13 @@ It also contains the following (commented out) action:
 
 This action is triggered only when tags are pushed. It is commented out to avoid
 inadvertently pushing wheels to public PyPI. Once you uncomment this section,
-you can deploy to [PyPI](https://pypi.org/) with these commands:
+you can deploy to [PyPI](https://pypi.org/). For example, to push tags for version
+``v0.5.0``, you would use these commands:
 
 ```bash
 git tag v0.5.0
 git push --tags
 ```
 
-**NOTE:** This upload action use the organizational secret. Be sure to replace it with a project-specific token.
+**NOTE:** The preceding upload action uses the organizational secret. Be sure to replace it
+with a project-specific token.
