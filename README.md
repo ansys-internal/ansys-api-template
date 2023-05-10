@@ -8,17 +8,22 @@ This repository contains a template for creating gRPC API packages that compile 
 Using this template, you can create a Python package to generate a Python wheel
 that exposes the interface files generated from gRPC PROTO files.
 
-Install the `ansys-api-tools-file-transfer` package with this command:
+Install the resulting package with this command:
 
 ```bash
-pip install ansys-api-tools-file-transfer
+pip install ansys-api-<product_name>-<library_name>
 ```
+
+where ``<product_name>`` and ``<library_name>`` are the names you can choose
+when instantiating the template.
 
 You can then use this package in a "higher-level" Python library.
 
 The directory created by this template is fully compatible with GitHub and can
-be uploaded to the [Ansys](https://github.com/ansys) organization to
-automatically push the Python package to PyPI.
+be uploaded to the [Ansys-Internal](https://github.com/ansys-internal) organization.
+
+When making the API package public, a CI step can be enabled to automatically push
+the Python package to PyPI.
 
 
 ## Installation and usage
@@ -27,7 +32,7 @@ Before using the template, run this command, preferably in a virtual environment
 package dependencies:
 
 ```bash
-pip install cookiecutter 'click<8'
+pip install cookiecutter
 ```
 
 Next, create your repository via ssh with this command:
