@@ -32,7 +32,7 @@ Before using the template, run this command, preferably in a virtual environment
 package dependencies:
 
 ```bash
-pip install cookiecutter
+pip install 'cookiecutter~=2.0'
 ```
 
 Next, create your repository via ssh with this command:
