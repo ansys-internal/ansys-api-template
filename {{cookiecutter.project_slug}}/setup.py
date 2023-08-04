@@ -35,7 +35,7 @@ if __name__ == "__main__":
         url=f"https://github.com/ansys/{package_name}",
         license="MIT",
         python_requires=">=3.7",
-        install_requires=["grpcio~=1.17", "protobuf~=3.19"{% for mod in cookiecutter.proto_dependencies['modules'] %}, "{{ mod }}"{% endfor %}],
+        install_requires=["grpcio~=1.17", "protobuf>=3.19,<5"{% for mod in cookiecutter.proto_dependencies['modules'] %}, "{{ mod }}"{% endfor %}],
         package_dir = {"": "src"},
         packages=setuptools.find_namespace_packages("src", include=("ansys.*",)),
         package_data={
